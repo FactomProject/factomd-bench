@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import os
 import json
 import psycopg2
 from pprint import pprint
@@ -50,8 +51,8 @@ def main():
     #x('DROP TABLE IF EXISTS logs CASCADE')
     #x('DROP TABLE IF EXISTS log_runs CASCADE')
     x('CREATE TABLE IF NOT EXISTS public.logs (e jsonb, run int)')
-    x('CREATE TABLE IF NOT EXISTS public.log_runs (id serial, ts timestamp)')
-    x('INSERT INTO public.log_runs(ts) values(now())')
+    x('CREATE TABLE IF NOT EXISTS public.log_runs (id serial, label varchar, ts timestamp)')
+    x("INSERT INTO public.log_runs(label, ts) values('%s', now())" % os.environ.get("LABEL",""))
 
     print("Loading log files into db as json")
     for n in NODES:
