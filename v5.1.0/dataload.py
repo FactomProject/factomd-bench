@@ -41,7 +41,7 @@ def main():
 
     # NOTE: you may need to change this connection string to match your database setup
     #conn = psycopg2.connect("postgres://load:load@localhost:5432")
-    conn = psycopg2.connect("postgres://load:load@localdb:5432")
+    conn = psycopg2.connect("postgres://load:load@localhost:5432")
 
     def x(sql, fetch=True):
         cursor = conn.cursor()  
@@ -65,7 +65,7 @@ def main():
             try:
                 x('CREATE TABLE IF NOT EXISTS %s.%s () INHERITS (public.logs)' % (n, l))
                 extract(l, n)
-            except Excetion as ex:
+            except Exception as ex:
                 print(ex)
                 #print('skipped %s_%s' %(n,l))
 

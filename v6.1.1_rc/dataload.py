@@ -39,8 +39,8 @@ def main():
                 load(d, l, n)
 
     # NOTE: you may need to change this connection string to match your database setup
-    #conn = psycopg2.connect("postgres://load:load@localhost:5432")
-    conn = psycopg2.connect("postgres://load:load@localdb:5432")
+    conn = psycopg2.connect("postgres://load:load@localhost:5432")
+    #conn = psycopg2.connect("postgres://load:load@localdb:5432")
 
     def x(sql, fetch=True):
         cursor = conn.cursor()  
