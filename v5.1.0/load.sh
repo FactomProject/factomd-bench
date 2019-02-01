@@ -18,3 +18,6 @@ load test_LLLLLLLF_d100
 
 # didn't load
 #load test_LLLLLLLLF_d10
+
+ls: cannot access 'long': No such file or directory
+ls: cannot access 'long': No such file or directory
